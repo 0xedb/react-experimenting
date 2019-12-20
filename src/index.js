@@ -1,13 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
-
-import "./styles.css";
+const Lazy = lazy(() => import("./components/Lazy"));
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      Experimenting
+      <Suspense fallback={<h4>loading...</h4>}>
+        <Lazy />
+      </Suspense>
     </div>
   );
 }
